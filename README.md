@@ -42,34 +42,27 @@ pip install requests PySocks
 
 ## ⚙️ Konfigurasi
 Buka file script dan sesuaikan bagian KONFIGURASI di bagian atas:
-
-> **PROXY_FILE = "proxylist.txt"**          **# File daftar proxy**
->
-> **TARGET_URL = "https://raratravel.id"**  **# Target website (example)**
->
-> **THREADS = 50**                           **# Jumlah thread paralel**
->
-> **TIMEOUT = 10**                           **# Timeout request (detik)**
->
-> **RETRY_COUNT = 2**                        **# Jumlah retry jika gagal**
->
-> **DELAY_BETWEEN_REQUESTS = (0.5, 2)**      **# Delay acak (min, max) detik**
->
-> **CHECK_PROXY_BEFORE_USE = True**          **# Cek proxy hidup sebelum dipakai**
->
-> **LOG_FILE = "visitor_log.txt"**           **# File log hasil**
+```
+PROXY_FILE = "proxylist.txt"               # File daftar proxy
+TARGET_URL = "https://raratravel.id"       # Target website (example)
+THREADS = 50                               # Jumlah thread paralel**
+TIMEOUT = 10                               # Timeout request (detik)
+RETRY_COUNT = 2                            # Jumlah retry jika gagal
+DELAY_BETWEEN_REQUESTS = (0.5, 2)          # Delay acak (min, max) detik
+CHECK_PROXY_BEFORE_USE = True              # Cek proxy hidup sebelum dipakai
+LOG_FILE = "visitor_log.txt"               # File log hasil
+```
 
 ## 📝 Format Proxy
 Script mendukung tiga format berikut (satu per baris):
 
-`#Komentar bisa dengan tanda pagar`
->http://123.45.67.89:8080
->
->https://111.222.333.444:443
->
->socks5://98.76.54.32:1080
->
->192.168.1.100:3128          `#otomatis ditambahi http://`
+**#Komentar bisa dengan tanda pagar**
+```
+http://123.45.67.89:8080
+https://111.222.333.444:443
+socks5://98.76.54.32:1080
+192.168.1.100:3128          #otomatis ditambahi http://
+```
 
 **Catatan:** Untuk SOCKS5, pastikan menuliskan socks5:// di awal.
 
