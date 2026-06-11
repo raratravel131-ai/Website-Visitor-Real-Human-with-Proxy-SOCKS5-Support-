@@ -17,6 +17,13 @@
 - ✅ **Logging Lengkap** – Semua aktivitas dicatat ke file `visitor_log.txt` dan terminal.
 - ✅ **Statistik Real-time** – Total, sukses, gagal, proxy mati, success rate.
 
+## Penjelasan Penambahan
+- ✅ **Fitur:**	Implementasi
+- ✅ **SOCKS5 support:**	Library `requests` secara otomatis menangani skema `socks5://` dalam parameter `proxies`. Tidak perlu konfigurasi khusus.
+- ✅ **110+ User-Agent:**	Daftar statis mencakup Windows, macOS, Linux, Android, iOS, berbagai browser (Chrome, Firefox, Edge, Opera, Safari, bot).
+- ✅ **50+ Referer:**	Daftar domain populer (Google, Facebook, Twitter, YouTube, Wikipedia, dll) untuk meniru lalu lintas dari sumber beragam.
+- ✅ **Deteksi otomatis tipe proxy:**	Kode membaca file proxy; jika ada `socks5://` akan digunakan sebagai SOCKS5, jika `http://` sebagai HTTP/HTTPS, jika tanpa skema ditambahkan `http://`.
+
 ## 📦 Persyaratan
 
 - Python 3.6 atau lebih baru
@@ -36,9 +43,16 @@ Atau jika ingin manual:
 pip install requests PySocks
 ```
 
-3. **Siapkan file daftar proxy (contoh: proxylist.txt) dengan format satu baris satu proxy. Lihat bagian Format Proxy.**
+3. **Siapkan file daftar proxy** (contoh: proxylist.txt) dengan format satu baris satu proxy. Lihat bagian Format Proxy. Script ini mendukung tiga format berikut (satu per baris):
 
-
+**#Komentar bisa dengan tanda pagar**
+```
+http://123.45.67.89:8080
+https://111.222.333.444:443
+socks5://98.76.54.32:1080
+192.168.1.100:3128          #otomatis ditambahi http://
+```
+**Catatan:** Untuk SOCKS5, pastikan menuliskan socks5:// di awal.
 
 ## ⚙️ Konfigurasi
 Buka file script dan sesuaikan bagian KONFIGURASI di bagian atas:
@@ -52,19 +66,6 @@ DELAY_BETWEEN_REQUESTS = (0.5, 2)          # Delay acak (min, max) detik
 CHECK_PROXY_BEFORE_USE = True              # Cek proxy hidup sebelum dipakai
 LOG_FILE = "visitor_log.txt"               # File log hasil
 ```
-
-## 📝 Format Proxy
-Script mendukung tiga format berikut (satu per baris):
-
-**#Komentar bisa dengan tanda pagar**
-```
-http://123.45.67.89:8080
-https://111.222.333.444:443
-socks5://98.76.54.32:1080
-192.168.1.100:3128          #otomatis ditambahi http://
-```
-
-**Catatan:** Untuk SOCKS5, pastikan menuliskan socks5:// di awal.
 
 # 🖥️ Cara Menjalankan
 
